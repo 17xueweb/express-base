@@ -8,6 +8,19 @@ const mw = function(req, res, next) {
     next()
 }
 
+// 将 mw 注册为全局生效的中间件
+app.use(mw)
+
+app.get('/', (req, res) => {
+    console.log('调用了 / 这个路由');
+    res.send('Home page.');
+})
+
+app.get('/user', (req, res) => {
+    console.log('调用了 /user 这个路由');
+    res.send('User page.')
+})
+
 app.listen(80, () => {
     console.log('server running at http://127.0.0.1');
 })
