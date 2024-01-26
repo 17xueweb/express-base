@@ -29,7 +29,10 @@ app.get('/', (req, res) => {
 // req.params 获取 url 中的动态参数 比如 url为http://127.0.0.1:80/1 -> 获取结果为 { id: 1}
 // 接口中通过 ”:变量“ 写法
 // 注意写法 '/user/:id' :id前面要有个斜杠
-app.get('/user/:id', (req, res) => {
+
+// 这种写法有两个注意点：(1) :id中的id 不是固定写法可以自定义比如ids (2) 除了id 可以增加多个参数 '/user/:id/:username'
+// 多个参数发送请求 为 http://127.0.0.1:80/user/1/zs => { "ids": "1", "username": "zs"}
+app.get('/user/:ids/:username', (req, res) => {
     // req.params 是动态匹配到的 URL 参数，默认也是一个空对象
     console.log(req.params);
     res.send(req.params)
