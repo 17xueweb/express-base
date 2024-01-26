@@ -18,6 +18,13 @@ app.post('/user', (req, res) => {
     res.send('请求成功')
 })
 
+app.get('/', (req, res) => {
+    // 通过 req.query 可以获取客户端发送过来的 查询参数
+    // 注意：默认情况下, req.query 是一个空对象
+    console.log(req.query);
+    res.send(req.query)
+})
+
 // 3. 启动 web 服务器 
 app.listen(80, () => {
     console.log('server running at http://127.0.0.1');
