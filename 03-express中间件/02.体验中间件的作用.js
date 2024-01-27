@@ -3,7 +3,7 @@ const express = require("express")
 const app = express()
 
 // 中间件需要注册
-// 注意：多个中间件之间，共享一份 req 和 res
+// 注意：多个中间件之间，共享一份 req 和 res 
 app.use((req, res, next) => {
     // 获取请求到达服务器的时间
     const time = Date.now()
