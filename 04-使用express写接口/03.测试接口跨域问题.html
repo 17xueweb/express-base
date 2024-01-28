@@ -9,6 +9,7 @@
 <body>
     <button id="getBtn">GET</button>
     <button id="postBtn">POST</button>
+    <button id="jsonpBtn">JSONP</button>
     <script>
         $(function() {
             $("#getBtn").on('click', function() {
@@ -36,6 +37,18 @@
                     },
                     success: function() {
                         
+                    }
+                })
+            })
+
+            // 为 JSONP 按钮绑定点击事件处理函数
+            $('#jsonpBtn').on("click", function() {
+                $.ajax({
+                    url: 'http://127.0.0.1/api/jsonp',
+                    method: 'GET',
+                    dataType: 'jsonp',
+                    success: function(res) {
+                        console.log(res);
                     }
                 })
             })
